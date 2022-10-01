@@ -5,6 +5,7 @@ site_name: FSDS-DVC-NLP-project-with-docs
 nav:
   - Home: index.md
   - Data-prep-stage: data_prep.md
+  - Featurization: featurization.md
 
 site_author: Mohammad Usama
 site_description: >-
