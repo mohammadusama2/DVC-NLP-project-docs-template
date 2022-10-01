@@ -19,9 +19,8 @@ plots:
   PRC: prc.json  #Precision-Recall Curve
   ROC: roc.json  #Reciever Operator Characteristic Curve
 
-source_Data:
+source_data:
   # git-lfs required for cloning large file directory from github
   # git-lfs has limitation of file download size
-  URL: https://raw.githubusercontent.com/c17hawke/commom-data-repo/main/data.xml 
   data_dir: data
   data_file: data.xml
