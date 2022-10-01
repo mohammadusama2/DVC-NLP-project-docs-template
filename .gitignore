@@ -143,3 +143,5 @@ configs/secrets.yaml
 
 ~$Code_Details.xlsx
 Code_Details.xlsx
+artifacts/prepared/test.tsv
+artifacts/prepared/train.tsv
