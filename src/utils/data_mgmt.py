@@ -3,6 +3,8 @@ from tqdm import tqdm
 import random
 import xml.etree.ElementTree as ET # To read xml file
 import re
+import numpy as np
+import scipy.sparse as sparse
 
 
 def process_posts(fd_in, fd_out_train, fd_out_test, target_tag, split):
@@ -30,5 +32,11 @@ def process_posts(fd_in, fd_out_train, fd_out_test, target_tag, split):
             logging.exception(msg)
 
             
-def save_matrix(df, matrix, out_path):
-    id_matrix = df.pid
+def save_matrix(df, text_matrix, out_path): #text_matrix is the tfidf matrix that we got
+    pid_matrix = sparse.csr_matrix(df.pid.astype(np.int64)).T #We are transposing to make column matrix from row matrix
+    label_matrix = sparse.csr_matrix(df.label.astype(np.int64)).T
+
+    result = sparse.hstack([pid_matrix, label_matrix, text_matrix]) #horizontal stack of matrices
+    logging.info(msg)
+    msg = f"The output matrix saved at {out_path} of shape {result.shape}"
+    joblib.dump(result, out_path)
