@@ -150,3 +150,13 @@ ValueError: not a built-in stop list: enlish
 [2022-10-03 22:15:59,490: INFO: common]: The input data frame artifacts\prepared\test.tsv of size (7464, 3) is read.
 [2022-10-03 22:16:01,747: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
 
+[2022-10-03 22:37:23,495: INFO: stage_02_featurization]: 
+********************
+[2022-10-03 22:37:23,495: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
+[2022-10-03 22:37:23,499: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-03 22:37:23,501: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-03 22:37:23,501: INFO: common]: created directory at: artifacts\features
+[2022-10-03 22:37:23,681: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
+[2022-10-03 22:37:42,694: INFO: common]: The input data frame artifacts\prepared\test.tsv of size (7464, 3) is read.
+[2022-10-03 22:37:45,928: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
+
