@@ -7,6 +7,9 @@ import re
 
 def process_posts(fd_in, fd_out_train, fd_out_test, target_tag, split):
     line_num = 1 #Starting line
+    column_names = "pid\tlabel\ttext\n"
+    fd_out_train.write(column_names)
+    fd_out_test.write(column_names)
     for line in tqdm(fd_in):
         try:
             # Here it is checking what should i take as test_data or train_data from whatever line it is reading and this decision taken by random.
@@ -25,3 +28,7 @@ def process_posts(fd_in, fd_out_train, fd_out_test, target_tag, split):
         except Exception as e:
             msg = f"Skipping the broken line {line_num}: {e}\n"
             logging.exception(msg)
+
+            
+def save_matrix(df, matrix, out_path):
+    id_matrix = df.pid

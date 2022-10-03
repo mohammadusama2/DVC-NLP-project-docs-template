@@ -1,0 +1,49 @@
+[2022-10-01 23:34:51,268: INFO: stage_01_prepare_data]: 
+********************
+[2022-10-01 23:34:51,268: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data started <<<<<
+[2022-10-01 23:34:51,278: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-01 23:34:51,283: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-01 23:34:51,283: INFO: common]: created directory at: artifacts\prepared
+[2022-10-01 23:34:55,000: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data completed!<<<<<
+
+[2022-10-02 16:36:27,934: INFO: stage_01_prepare_data]: 
+********************
+[2022-10-02 16:36:27,934: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data started <<<<<
+[2022-10-02 16:36:27,939: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-02 16:36:27,939: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-02 16:36:27,939: INFO: common]: created directory at: artifacts\prepared
+[2022-10-02 16:36:35,960: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data completed!<<<<<
+
+[2022-10-02 16:38:54,340: INFO: stage_02_featurization]: 
+********************
+[2022-10-02 16:38:54,340: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
+[2022-10-02 16:38:54,340: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-02 16:38:54,345: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-02 16:38:54,345: INFO: common]: created directory at: a
+[2022-10-02 16:38:54,345: INFO: common]: created directory at: r
+[2022-10-02 16:38:54,345: INFO: common]: created directory at: t
+[2022-10-02 16:38:54,345: INFO: common]: created directory at: i
+[2022-10-02 16:38:54,345: INFO: common]: created directory at: f
+[2022-10-02 16:38:54,345: INFO: common]: created directory at: a
+[2022-10-02 16:38:54,345: INFO: common]: created directory at: c
+[2022-10-02 16:38:54,345: INFO: common]: created directory at: t
+[2022-10-02 16:38:54,345: INFO: common]: created directory at: s
+[2022-10-02 16:38:54,345: INFO: common]: created directory at: \
+[2022-10-02 16:38:54,345: INFO: common]: created directory at: f
+[2022-10-02 16:38:54,345: INFO: common]: created directory at: e
+[2022-10-02 16:38:54,350: INFO: common]: created directory at: a
+[2022-10-02 16:38:54,350: INFO: common]: created directory at: t
+[2022-10-02 16:38:54,350: INFO: common]: created directory at: u
+[2022-10-02 16:38:54,350: INFO: common]: created directory at: r
+[2022-10-02 16:38:54,350: INFO: common]: created directory at: e
+[2022-10-02 16:38:54,350: INFO: common]: created directory at: s
+[2022-10-02 16:38:55,284: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17537, 3) is read.
+[2022-10-02 16:38:55,284: ERROR: stage_02_featurization]: 'DataFrame' object has no attribute 'text'
+Traceback (most recent call last):
+  File "src/stage_02_featurization.py", line 80, in <module>
+    main(config_path=parsed_args.config, params_path=parsed_args.params)
+  File "src/stage_02_featurization.py", line 42, in main
+    train_words = np.array(df_train.text.str.lower().values.astype("U"))
+  File "D:\Usama\Personal\iNeuron\2022\Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\pandas\core\generic.py", line 5907, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'text'
