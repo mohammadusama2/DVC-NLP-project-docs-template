@@ -47,3 +47,106 @@ Traceback (most recent call last):
   File "D:\Usama\Personal\iNeuron\2022\Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\pandas\core\generic.py", line 5907, in __getattr__
     return object.__getattribute__(self, name)
 AttributeError: 'DataFrame' object has no attribute 'text'
+[2022-10-03 21:59:25,863: INFO: stage_02_featurization]: 
+********************
+[2022-10-03 21:59:25,863: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
+[2022-10-03 21:59:25,875: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-03 21:59:25,887: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-03 21:59:25,887: INFO: common]: created directory at: a
+[2022-10-03 21:59:25,892: INFO: common]: created directory at: r
+[2022-10-03 21:59:25,892: INFO: common]: created directory at: t
+[2022-10-03 21:59:25,892: INFO: common]: created directory at: i
+[2022-10-03 21:59:25,892: INFO: common]: created directory at: f
+[2022-10-03 21:59:25,892: INFO: common]: created directory at: a
+[2022-10-03 21:59:25,892: INFO: common]: created directory at: c
+[2022-10-03 21:59:25,892: INFO: common]: created directory at: t
+[2022-10-03 21:59:25,892: INFO: common]: created directory at: s
+[2022-10-03 21:59:25,892: INFO: common]: created directory at: \
+[2022-10-03 21:59:25,892: INFO: common]: created directory at: f
+[2022-10-03 21:59:25,892: INFO: common]: created directory at: e
+[2022-10-03 21:59:25,892: INFO: common]: created directory at: a
+[2022-10-03 21:59:25,897: INFO: common]: created directory at: t
+[2022-10-03 21:59:25,897: INFO: common]: created directory at: u
+[2022-10-03 21:59:25,897: INFO: common]: created directory at: r
+[2022-10-03 21:59:25,897: INFO: common]: created directory at: e
+[2022-10-03 21:59:25,897: INFO: common]: created directory at: s
+[2022-10-03 21:59:27,490: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17537, 3) is read.
+[2022-10-03 21:59:27,490: ERROR: stage_02_featurization]: 'DataFrame' object has no attribute 'text'
+Traceback (most recent call last):
+  File "src/stage_02_featurization.py", line 80, in <module>
+    main(config_path=parsed_args.config, params_path=parsed_args.params)
+  File "src/stage_02_featurization.py", line 42, in main
+    train_words = np.array(df_train.text.str.lower().values.astype("U"))
+  File "D:\Usama\Personal\iNeuron\2022\Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\pandas\core\generic.py", line 5907, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'text'
+[2022-10-03 22:15:22,208: INFO: stage_02_featurization]: 
+********************
+[2022-10-03 22:15:22,208: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
+[2022-10-03 22:15:22,208: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-03 22:15:22,208: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-03 22:15:22,208: INFO: common]: created directory at: a
+[2022-10-03 22:15:22,208: INFO: common]: created directory at: r
+[2022-10-03 22:15:22,208: INFO: common]: created directory at: t
+[2022-10-03 22:15:22,208: INFO: common]: created directory at: i
+[2022-10-03 22:15:22,208: INFO: common]: created directory at: f
+[2022-10-03 22:15:22,208: INFO: common]: created directory at: a
+[2022-10-03 22:15:22,213: INFO: common]: created directory at: c
+[2022-10-03 22:15:22,213: INFO: common]: created directory at: t
+[2022-10-03 22:15:22,213: INFO: common]: created directory at: s
+[2022-10-03 22:15:22,213: INFO: common]: created directory at: \
+[2022-10-03 22:15:22,213: INFO: common]: created directory at: f
+[2022-10-03 22:15:22,213: INFO: common]: created directory at: e
+[2022-10-03 22:15:22,213: INFO: common]: created directory at: a
+[2022-10-03 22:15:22,213: INFO: common]: created directory at: t
+[2022-10-03 22:15:22,213: INFO: common]: created directory at: u
+[2022-10-03 22:15:22,213: INFO: common]: created directory at: r
+[2022-10-03 22:15:22,213: INFO: common]: created directory at: e
+[2022-10-03 22:15:22,213: INFO: common]: created directory at: s
+[2022-10-03 22:15:22,369: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
+[2022-10-03 22:15:23,255: ERROR: stage_02_featurization]: not a built-in stop list: enlish
+Traceback (most recent call last):
+  File "src/stage_02_featurization.py", line 80, in <module>
+    main(config_path=parsed_args.config, params_path=parsed_args.params)
+  File "src/stage_02_featurization.py", line 50, in main
+    bag_of_words.fit(train_words)
+  File "D:\Usama\Personal\iNeuron\2022\Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\sklearn\feature_extraction\text.py", line 1291, in fit
+    self.fit_transform(raw_documents)
+  File "D:\Usama\Personal\iNeuron\2022\Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\sklearn\feature_extraction\text.py", line 1338, in fit_transform
+    vocabulary, X = self._count_vocab(raw_documents, self.fixed_vocabulary_)
+  File "D:\Usama\Personal\iNeuron\2022\Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\sklearn\feature_extraction\text.py", line 1201, in _count_vocab
+    analyze = self.build_analyzer()
+  File "D:\Usama\Personal\iNeuron\2022\Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\sklearn\feature_extraction\text.py", line 454, in build_analyzer
+    stop_words = self.get_stop_words()
+  File "D:\Usama\Personal\iNeuron\2022\Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\sklearn\feature_extraction\text.py", line 376, in get_stop_words
+    return _check_stop_list(self.stop_words)
+  File "D:\Usama\Personal\iNeuron\2022\Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\sklearn\feature_extraction\text.py", line 196, in _check_stop_list
+    raise ValueError("not a built-in stop list: %s" % stop)
+ValueError: not a built-in stop list: enlish
+[2022-10-03 22:15:46,077: INFO: stage_02_featurization]: 
+********************
+[2022-10-03 22:15:46,082: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
+[2022-10-03 22:15:46,082: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-03 22:15:46,082: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-03 22:15:46,082: INFO: common]: created directory at: a
+[2022-10-03 22:15:46,082: INFO: common]: created directory at: r
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: t
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: i
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: f
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: a
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: c
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: t
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: s
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: \
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: f
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: e
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: a
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: t
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: u
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: r
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: e
+[2022-10-03 22:15:46,087: INFO: common]: created directory at: s
+[2022-10-03 22:15:46,238: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
+[2022-10-03 22:15:59,490: INFO: common]: The input data frame artifacts\prepared\test.tsv of size (7464, 3) is read.
+[2022-10-03 22:16:01,747: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
+

@@ -42,7 +42,7 @@ def main(config_path, params_path):
     train_words = np.array(df_train.text.str.lower().values.astype("U"))
 
     bag_of_words = CountVectorizer(
-        stop_words="enlish",
+        stop_words="english",
         max_features=max_features,
         ngram_range=(1,n_grams)
     )
