@@ -5,6 +5,7 @@ import xml.etree.ElementTree as ET # To read xml file
 import re
 import numpy as np
 import scipy.sparse as sparse
+import joblib
 
 
 def process_posts(fd_in, fd_out_train, fd_out_test, target_tag, split):
@@ -37,6 +38,7 @@ def save_matrix(df, text_matrix, out_path): #text_matrix is the tfidf matrix tha
     label_matrix = sparse.csr_matrix(df.label.astype(np.int64)).T
 
     result = sparse.hstack([pid_matrix, label_matrix, text_matrix]) #horizontal stack of matrices
-    logging.info(msg)
+    
     msg = f"The output matrix saved at {out_path} of shape {result.shape}"
+    logging.info(msg)
     joblib.dump(result, out_path)
