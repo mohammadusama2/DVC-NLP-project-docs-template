@@ -74,3 +74,66 @@ UnboundLocalError: local variable 'msg' referenced before assignment
 [2022-10-05 22:22:04,588: INFO: data_mgmt]: The output matrix saved at artifacts\features\test.pkl of shape (7464, 2502)
 [2022-10-05 22:22:04,837: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
 
+[2022-10-05 22:42:54,329: INFO: stage_03_train]: 
+********************
+[2022-10-05 22:42:54,329: INFO: stage_03_train]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-05 22:42:54,332: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-05 22:42:54,334: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-05 22:42:54,334: INFO: common]: created directory at: artifacts\model
+[2022-10-05 22:42:54,335: ERROR: stage_03_train]: [Errno 13] Permission denied: 'artifacts\\features'
+Traceback (most recent call last):
+  File "src/stage_03_train.py", line 73, in <module>
+    main(config_path=parsed_args.config, params_path=parsed_args.params)
+  File "src/stage_03_train.py", line 35, in main
+    matrix = joblib.load(featurized_data_dir_path)
+  File "D:\Usama\Personal\iNeuron\2022\Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\joblib\numpy_pickle.py", line 650, in load
+    with open(filename, 'rb') as f:
+PermissionError: [Errno 13] Permission denied: 'artifacts\\features'
+[2022-10-05 22:50:13,982: INFO: stage_03_train]: 
+********************
+[2022-10-05 22:50:13,982: INFO: stage_03_train]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-05 22:50:13,985: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-05 22:50:13,987: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-05 22:50:13,987: INFO: common]: created directory at: artifacts\model
+[2022-10-05 22:50:13,987: ERROR: stage_03_train]: [Errno 13] Permission denied: 'artifacts\\features'
+Traceback (most recent call last):
+  File "src/stage_03_train.py", line 73, in <module>
+    main(config_path=parsed_args.config, params_path=parsed_args.params)
+  File "src/stage_03_train.py", line 35, in main
+    matrix = joblib.load(featurized_data_dir_path)
+  File "D:\Usama\Personal\iNeuron\2022\Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\joblib\numpy_pickle.py", line 650, in load
+    with open(filename, 'rb') as f:
+PermissionError: [Errno 13] Permission denied: 'artifacts\\features'
+[2022-10-05 22:59:51,980: INFO: stage_03_train]: 
+********************
+[2022-10-05 22:59:51,980: INFO: stage_03_train]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-05 22:59:51,983: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-05 22:59:51,985: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-05 22:59:51,986: INFO: common]: created directory at: artifacts\model
+[2022-10-05 22:59:51,994: ERROR: stage_03_train]: 'coo_matrix' object is not subscriptable
+Traceback (most recent call last):
+  File "src/stage_03_train.py", line 74, in <module>
+    main(config_path=parsed_args.config, params_path=parsed_args.params)
+  File "src/stage_03_train.py", line 38, in main
+    labels = np.squeeze(matrix[:,1].toarray())
+TypeError: 'coo_matrix' object is not subscriptable
+[2022-10-05 23:01:03,737: INFO: stage_01_prepare_data]: 
+********************
+[2022-10-05 23:01:03,738: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data started <<<<<
+[2022-10-05 23:01:03,741: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-05 23:01:03,743: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-05 23:01:03,743: INFO: common]: created directory at: artifacts\prepared
+[2022-10-05 23:01:06,982: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data completed!<<<<<
+
+[2022-10-05 23:01:12,042: INFO: stage_02_featurization]: 
+********************
+[2022-10-05 23:01:12,042: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
+[2022-10-05 23:01:12,045: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-05 23:01:12,047: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-05 23:01:12,048: INFO: common]: created directory at: artifacts\features
+[2022-10-05 23:01:12,218: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
+[2022-10-05 23:01:25,059: INFO: data_mgmt]: The output matrix saved at artifacts\features\train.pkl of shape (17536, 2502)
+[2022-10-05 23:01:25,134: INFO: common]: The input data frame artifacts\prepared\test.tsv of size (7464, 3) is read.
+[2022-10-05 23:01:26,954: INFO: data_mgmt]: The output matrix saved at artifacts\features\test.pkl of shape (7464, 2502)
+[2022-10-05 23:01:27,199: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
+

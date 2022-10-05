@@ -37,7 +37,7 @@ def save_matrix(df, text_matrix, out_path): #text_matrix is the tfidf matrix tha
     pid_matrix = sparse.csr_matrix(df.pid.astype(np.int64)).T #We are transposing to make column matrix from row matrix
     label_matrix = sparse.csr_matrix(df.label.astype(np.int64)).T
 
-    result = sparse.hstack([pid_matrix, label_matrix, text_matrix]) #horizontal stack of matrices
+    result = sparse.hstack([pid_matrix, label_matrix, text_matrix], format="csr") #horizontal stack of matrices
     
     msg = f"The output matrix saved at {out_path} of shape {result.shape}"
     logging.info(msg)
