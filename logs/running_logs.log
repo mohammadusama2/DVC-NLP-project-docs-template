@@ -137,3 +137,51 @@ TypeError: 'coo_matrix' object is not subscriptable
 [2022-10-05 23:01:26,954: INFO: data_mgmt]: The output matrix saved at artifacts\features\test.pkl of shape (7464, 2502)
 [2022-10-05 23:01:27,199: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
 
+[2022-10-05 23:03:04,186: INFO: stage_03_train]: 
+********************
+[2022-10-05 23:03:04,186: INFO: stage_03_train]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-05 23:03:04,190: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-05 23:03:04,193: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-05 23:03:04,194: INFO: common]: created directory at: artifacts\model
+[2022-10-05 23:03:04,211: INFO: stage_03_train]: input matrix size: (17536, 2502)
+[2022-10-05 23:03:04,212: INFO: stage_03_train]: X matrix size: (17536, 2500)
+[2022-10-05 23:03:04,213: INFO: stage_03_train]: I matrix size or labels: (17536,)
+[2022-10-05 23:03:07,703: INFO: stage_03_train]: saveed our mdoel at: artifacts\model\model.h5
+[2022-10-05 23:03:07,705: INFO: stage_03_train]: >>>>> stage STAGE_NAME completed!<<<<<
+
+[2022-10-05 23:06:20,167: INFO: stage_02_featurization]: 
+********************
+[2022-10-05 23:06:20,167: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
+[2022-10-05 23:06:20,170: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-05 23:06:20,172: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-05 23:06:20,172: INFO: common]: created directory at: artifacts\features
+[2022-10-05 23:06:20,343: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
+[2022-10-05 23:06:33,492: INFO: data_mgmt]: The output matrix saved at artifacts\features\train.pkl of shape (17536, 2502)
+[2022-10-05 23:06:33,574: INFO: common]: The input data frame artifacts\prepared\test.tsv of size (7464, 3) is read.
+[2022-10-05 23:06:35,534: INFO: data_mgmt]: The output matrix saved at artifacts\features\test.pkl of shape (7464, 2502)
+[2022-10-05 23:06:35,808: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
+
+[2022-10-05 23:06:38,298: INFO: stage_03_train]: 
+********************
+[2022-10-05 23:06:38,298: INFO: stage_03_train]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-05 23:06:38,301: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-05 23:06:38,303: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-05 23:06:38,303: INFO: common]: created directory at: artifacts\model
+[2022-10-05 23:06:38,317: INFO: stage_03_train]: input matrix size: (17536, 2502)
+[2022-10-05 23:06:38,318: INFO: stage_03_train]: X matrix size: (17536, 2500)
+[2022-10-05 23:06:38,318: INFO: stage_03_train]: I matrix size or labels: (17536,)
+[2022-10-05 23:06:41,930: INFO: stage_03_train]: saveed our mdoel at: artifacts\model\model.h5
+[2022-10-05 23:06:41,930: INFO: stage_03_train]: >>>>> stage STAGE_NAME completed!<<<<<
+
+[2022-10-05 23:08:26,642: INFO: stage_03_train]: 
+********************
+[2022-10-05 23:08:26,642: INFO: stage_03_train]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-05 23:08:26,645: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-05 23:08:26,646: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-05 23:08:26,647: INFO: common]: created directory at: artifacts\model
+[2022-10-05 23:08:26,659: INFO: stage_03_train]: input matrix size: (17536, 2502)
+[2022-10-05 23:08:26,660: INFO: stage_03_train]: X matrix size: (17536, 2500)
+[2022-10-05 23:08:26,660: INFO: stage_03_train]: I matrix size or labels: (17536,)
+[2022-10-05 23:08:30,404: INFO: stage_03_train]: saveed our mdoel at: artifacts\model\model.pkl
+[2022-10-05 23:08:30,405: INFO: stage_03_train]: >>>>> stage STAGE_NAME completed!<<<<<
+

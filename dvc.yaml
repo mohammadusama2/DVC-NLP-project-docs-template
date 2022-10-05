@@ -15,4 +15,13 @@ stages:
     - src/utils
     - artifacts/prepared
     outs:
-    - artifacts/features    
+    - artifacts/features   
+
+  train:
+    cmd: python src/stage_03_train.py
+    deps:
+    - src/stage_03_train.py
+    - src/utils
+    - artifacts/features
+    outs:
+    - artifacts/model/model.pkl     
