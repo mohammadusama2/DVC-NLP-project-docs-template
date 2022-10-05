@@ -42,3 +42,35 @@ Traceback (most recent call last):
   File "d:\usama\personal\ineuron\2022\projects\fsds-dvc-nlp-project-with-docs\src\utils\data_mgmt.py", line 40, in save_matrix
     logging.info(msg)
 UnboundLocalError: local variable 'msg' referenced before assignment
+[2022-10-05 22:11:01,451: INFO: stage_02_featurization]: 
+********************
+[2022-10-05 22:11:01,451: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
+[2022-10-05 22:11:01,458: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-05 22:11:01,463: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-05 22:11:01,463: INFO: common]: created directory at: artifacts\features
+[2022-10-05 22:11:02,456: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
+[2022-10-05 22:11:15,442: INFO: data_mgmt]: The output matrix saved at artifacts\features\train.pkl of shape (17536, 2502)
+[2022-10-05 22:11:15,919: INFO: common]: The input data frame artifacts\prepared\test.tsv of size (7464, 3) is read.
+[2022-10-05 22:11:18,146: INFO: data_mgmt]: The output matrix saved at artifacts\features\test.pkl of shape (7464, 2502)
+[2022-10-05 22:11:18,518: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
+
+[2022-10-05 22:21:41,708: INFO: stage_01_prepare_data]: 
+********************
+[2022-10-05 22:21:41,708: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data started <<<<<
+[2022-10-05 22:21:41,711: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-05 22:21:41,712: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-05 22:21:41,713: INFO: common]: created directory at: artifacts\prepared
+[2022-10-05 22:21:44,870: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data completed!<<<<<
+
+[2022-10-05 22:21:50,087: INFO: stage_02_featurization]: 
+********************
+[2022-10-05 22:21:50,087: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
+[2022-10-05 22:21:50,090: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-05 22:21:50,092: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-05 22:21:50,093: INFO: common]: created directory at: artifacts\features
+[2022-10-05 22:21:50,263: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
+[2022-10-05 22:22:02,558: INFO: data_mgmt]: The output matrix saved at artifacts\features\train.pkl of shape (17536, 2502)
+[2022-10-05 22:22:02,639: INFO: common]: The input data frame artifacts\prepared\test.tsv of size (7464, 3) is read.
+[2022-10-05 22:22:04,588: INFO: data_mgmt]: The output matrix saved at artifacts\features\test.pkl of shape (7464, 2502)
+[2022-10-05 22:22:04,837: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
+
