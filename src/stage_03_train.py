@@ -8,7 +8,7 @@ import joblib
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
-STAGE = "STAGE_NAME" ## <<< change stage name 
+STAGE = "training" ## <<< change stage name 
 
 logging.basicConfig(
     filename=os.path.join("logs", 'running_logs.log'), 
