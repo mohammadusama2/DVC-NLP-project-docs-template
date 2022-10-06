@@ -52,6 +52,7 @@ def main(config_path, params_path):
     avg_precision = metrics.average_precision_score(labels, predictions)
     roc_auc = metrics.roc_auc_score(labels,predictions)
 
+    logging.info(f"len of labels: {len(labels)} and predictions: {len(predictions)}")
     scores = {
         "avg_precision": avg_precision,
         "roc_auc": roc_auc
@@ -65,6 +66,7 @@ def main(config_path, params_path):
     nth_point = math.ceil(len(prc_threshold)/1000)
     prc_points = list(zip(precision, recall, prc_threshold))[::nth_point]
 
+    logging.info(f"no. of prc points : {len(prc_points)}")
     # In this format dvc will automatically take data and plot it.
     prc_data = {
         "prc":[
@@ -77,7 +79,7 @@ def main(config_path, params_path):
 
     #FOR ROC
     fpr, tpr, roc_threshold = metrics.roc_curve(labels, predictions)
-
+    roc_points = zip(fpr, tpr, roc_threshold)
     # In this format dvc will automatically take data and plot it.
     roc_data = {
         "roc":[
@@ -85,6 +87,8 @@ def main(config_path, params_path):
             for fp, tp,t in zip(fpr, tpr, roc_threshold)
             ]
     }
+
+    logging.info(f"no. of roc points : {len(list(roc_points))}")
 
     save_json(ROC_json_path, roc_data)
 
