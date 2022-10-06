@@ -1,187 +1,188 @@
-[2022-10-03 22:56:34,124: INFO: stage_02_featurization]: 
+[2022-10-06 10:33:47,144: INFO: stage_01_prepare_data]: 
 ********************
-[2022-10-03 22:56:34,124: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
-[2022-10-03 22:56:34,129: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-03 22:56:34,129: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-03 22:56:34,129: INFO: common]: created directory at: artifacts\features
-[2022-10-03 22:56:34,335: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
-[2022-10-03 22:56:48,312: ERROR: stage_02_featurization]: save_matrix() got an unexpected keyword argument 'matrix'
+[2022-10-06 10:33:47,144: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data started <<<<<
+[2022-10-06 10:33:47,150: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 10:33:47,152: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 10:33:47,152: INFO: common]: created directory at: artifacts\prepared
+[2022-10-06 10:33:49,306: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data completed!<<<<<
+
+[2022-10-06 10:33:51,948: INFO: stage_02_featurization]: 
+********************
+[2022-10-06 10:33:51,948: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
+[2022-10-06 10:33:51,950: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 10:33:51,952: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 10:33:51,952: INFO: common]: created directory at: artifacts\features
+[2022-10-06 10:33:52,069: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
+[2022-10-06 10:34:00,654: INFO: data_mgmt]: The output matrix saved at artifacts\features\train.pkl of shape (17536, 2502)
+[2022-10-06 10:34:00,711: INFO: common]: The input data frame artifacts\prepared\test.tsv of size (7464, 3) is read.
+[2022-10-06 10:34:02,071: INFO: data_mgmt]: The output matrix saved at artifacts\features\test.pkl of shape (7464, 2502)
+[2022-10-06 10:34:02,219: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
+
+[2022-10-06 10:34:04,873: INFO: stage_03_train]: 
+********************
+[2022-10-06 10:34:04,873: INFO: stage_03_train]: >>>>> stage training started <<<<<
+[2022-10-06 10:34:04,876: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 10:34:04,877: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 10:34:04,877: INFO: common]: created directory at: artifacts\model
+[2022-10-06 10:34:04,886: INFO: stage_03_train]: input matrix size: (17536, 2502)
+[2022-10-06 10:34:04,886: INFO: stage_03_train]: X matrix size: (17536, 2500)
+[2022-10-06 10:34:04,887: INFO: stage_03_train]: I matrix size or labels: (17536,)
+[2022-10-06 10:34:06,974: INFO: stage_03_train]: saveed our mdoel at: artifacts\model\model.pkl
+[2022-10-06 10:34:06,975: INFO: stage_03_train]: >>>>> stage training completed!<<<<<
+
+[2022-10-06 12:48:24,718: INFO: stage_04_evaluate]: 
+********************
+[2022-10-06 12:48:24,718: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-06 12:48:24,720: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 12:48:24,722: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 12:48:24,852: ERROR: stage_04_evaluate]: X has 2502 features, but RandomForestClassifier is expecting 2500 features as input.
 Traceback (most recent call last):
-  File "src/stage_02_featurization.py", line 80, in <module>
+  File "src/stage_04_evaluate.py", line 56, in <module>
     main(config_path=parsed_args.config, params_path=parsed_args.params)
-  File "src/stage_02_featurization.py", line 58, in main
-    save_matrix(df=df_train, matrix=train_words_tfidf_matrix, out_path = featurized_train_data_path)
-TypeError: save_matrix() got an unexpected keyword argument 'matrix'
-[2022-10-03 22:57:46,272: INFO: stage_02_featurization]: 
+  File "src/stage_04_evaluate.py", line 44, in main
+    prediction_by_class = model.predict_proba(X)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\sklearn\ensemble\_forest.py", line 839, in predict_proba
+    X = self._validate_X_predict(X)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\sklearn\ensemble\_forest.py", line 568, in _validate_X_predict
+    X = self._validate_data(X, dtype=DTYPE, accept_sparse="csr", reset=False)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\sklearn\base.py", line 576, in _validate_data
+    self._check_n_features(X, reset=reset)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\sklearn\base.py", line 395, in _check_n_features
+    raise ValueError(
+ValueError: X has 2502 features, but RandomForestClassifier is expecting 2500 features as input.
+[2022-10-06 12:51:10,573: INFO: stage_04_evaluate]: 
 ********************
-[2022-10-03 22:57:46,272: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
-[2022-10-03 22:57:46,277: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-03 22:57:46,277: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-03 22:57:46,277: INFO: common]: created directory at: artifacts\features
-[2022-10-03 22:57:46,437: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
-[2022-10-03 22:58:00,603: ERROR: stage_02_featurization]: save_matrix() got an unexpected keyword argument 'test_matrix'
+[2022-10-06 12:51:10,574: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-06 12:51:10,576: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 12:51:10,578: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 12:51:10,696: ERROR: stage_04_evaluate]: name 'pwd' is not defined
 Traceback (most recent call last):
-  File "src/stage_02_featurization.py", line 80, in <module>
+  File "src/stage_04_evaluate.py", line 58, in <module>
     main(config_path=parsed_args.config, params_path=parsed_args.params)
-  File "src/stage_02_featurization.py", line 58, in main
-    save_matrix(df=df_train, test_matrix=train_words_tfidf_matrix, out_path = featurized_train_data_path)
-TypeError: save_matrix() got an unexpected keyword argument 'test_matrix'
-[2022-10-03 22:59:04,261: INFO: stage_02_featurization]: 
+  File "src/stage_04_evaluate.py", line 43, in main
+    print(pwd())
+NameError: name 'pwd' is not defined
+[2022-10-06 12:51:41,298: INFO: stage_04_evaluate]: 
 ********************
-[2022-10-03 22:59:04,261: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
-[2022-10-03 22:59:04,261: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-03 22:59:04,266: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-03 22:59:04,266: INFO: common]: created directory at: artifacts\features
-[2022-10-03 22:59:04,450: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
-[2022-10-03 22:59:18,333: ERROR: stage_02_featurization]: local variable 'msg' referenced before assignment
+[2022-10-06 12:51:41,299: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-06 12:51:41,301: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 12:51:41,303: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 12:51:41,424: ERROR: stage_04_evaluate]: to_csv not found
 Traceback (most recent call last):
-  File "src/stage_02_featurization.py", line 80, in <module>
+  File "src/stage_04_evaluate.py", line 58, in <module>
     main(config_path=parsed_args.config, params_path=parsed_args.params)
-  File "src/stage_02_featurization.py", line 58, in main
-    save_matrix(df=df_train, text_matrix=train_words_tfidf_matrix, out_path = featurized_train_data_path)
-  File "d:\usama\personal\ineuron\2022\projects\fsds-dvc-nlp-project-with-docs\src\utils\data_mgmt.py", line 40, in save_matrix
-    logging.info(msg)
-UnboundLocalError: local variable 'msg' referenced before assignment
-[2022-10-05 22:11:01,451: INFO: stage_02_featurization]: 
+  File "src/stage_04_evaluate.py", line 44, in main
+    X.to_csv("features data")
+  File "D:\Usama\DriveShare\NLP\Projects\End_to_End_Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\scipy\sparse\_base.py", line 771, in __getattr__
+    raise AttributeError(attr + " not found")
+AttributeError: to_csv not found
+[2022-10-06 12:52:31,312: INFO: stage_04_evaluate]: 
 ********************
-[2022-10-05 22:11:01,451: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
-[2022-10-05 22:11:01,458: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-05 22:11:01,463: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-05 22:11:01,463: INFO: common]: created directory at: artifacts\features
-[2022-10-05 22:11:02,456: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
-[2022-10-05 22:11:15,442: INFO: data_mgmt]: The output matrix saved at artifacts\features\train.pkl of shape (17536, 2502)
-[2022-10-05 22:11:15,919: INFO: common]: The input data frame artifacts\prepared\test.tsv of size (7464, 3) is read.
-[2022-10-05 22:11:18,146: INFO: data_mgmt]: The output matrix saved at artifacts\features\test.pkl of shape (7464, 2502)
-[2022-10-05 22:11:18,518: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
-
-[2022-10-05 22:21:41,708: INFO: stage_01_prepare_data]: 
-********************
-[2022-10-05 22:21:41,708: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data started <<<<<
-[2022-10-05 22:21:41,711: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-05 22:21:41,712: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-05 22:21:41,713: INFO: common]: created directory at: artifacts\prepared
-[2022-10-05 22:21:44,870: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data completed!<<<<<
-
-[2022-10-05 22:21:50,087: INFO: stage_02_featurization]: 
-********************
-[2022-10-05 22:21:50,087: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
-[2022-10-05 22:21:50,090: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-05 22:21:50,092: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-05 22:21:50,093: INFO: common]: created directory at: artifacts\features
-[2022-10-05 22:21:50,263: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
-[2022-10-05 22:22:02,558: INFO: data_mgmt]: The output matrix saved at artifacts\features\train.pkl of shape (17536, 2502)
-[2022-10-05 22:22:02,639: INFO: common]: The input data frame artifacts\prepared\test.tsv of size (7464, 3) is read.
-[2022-10-05 22:22:04,588: INFO: data_mgmt]: The output matrix saved at artifacts\features\test.pkl of shape (7464, 2502)
-[2022-10-05 22:22:04,837: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
-
-[2022-10-05 22:42:54,329: INFO: stage_03_train]: 
-********************
-[2022-10-05 22:42:54,329: INFO: stage_03_train]: >>>>> stage STAGE_NAME started <<<<<
-[2022-10-05 22:42:54,332: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-05 22:42:54,334: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-05 22:42:54,334: INFO: common]: created directory at: artifacts\model
-[2022-10-05 22:42:54,335: ERROR: stage_03_train]: [Errno 13] Permission denied: 'artifacts\\features'
+[2022-10-06 12:52:31,313: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-06 12:52:31,315: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 12:52:31,317: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 12:52:31,439: ERROR: stage_04_evaluate]: X has 2502 features, but RandomForestClassifier is expecting 2500 features as input.
 Traceback (most recent call last):
-  File "src/stage_03_train.py", line 73, in <module>
+  File "src/stage_04_evaluate.py", line 60, in <module>
     main(config_path=parsed_args.config, params_path=parsed_args.params)
-  File "src/stage_03_train.py", line 35, in main
-    matrix = joblib.load(featurized_data_dir_path)
-  File "D:\Usama\Personal\iNeuron\2022\Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\joblib\numpy_pickle.py", line 650, in load
-    with open(filename, 'rb') as f:
-PermissionError: [Errno 13] Permission denied: 'artifacts\\features'
-[2022-10-05 22:50:13,982: INFO: stage_03_train]: 
+  File "src/stage_04_evaluate.py", line 48, in main
+    prediction_by_class = model.predict_proba(X)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\sklearn\ensemble\_forest.py", line 839, in predict_proba
+    X = self._validate_X_predict(X)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\sklearn\ensemble\_forest.py", line 568, in _validate_X_predict
+    X = self._validate_data(X, dtype=DTYPE, accept_sparse="csr", reset=False)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\sklearn\base.py", line 576, in _validate_data
+    self._check_n_features(X, reset=reset)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\sklearn\base.py", line 395, in _check_n_features
+    raise ValueError(
+ValueError: X has 2502 features, but RandomForestClassifier is expecting 2500 features as input.
+[2022-10-06 12:53:47,824: INFO: stage_04_evaluate]: 
 ********************
-[2022-10-05 22:50:13,982: INFO: stage_03_train]: >>>>> stage STAGE_NAME started <<<<<
-[2022-10-05 22:50:13,985: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-05 22:50:13,987: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-05 22:50:13,987: INFO: common]: created directory at: artifacts\model
-[2022-10-05 22:50:13,987: ERROR: stage_03_train]: [Errno 13] Permission denied: 'artifacts\\features'
+[2022-10-06 12:53:47,824: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-06 12:53:47,826: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 12:53:47,828: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 12:53:47,957: ERROR: stage_04_evaluate]: X has 2502 features, but RandomForestClassifier is expecting 2500 features as input.
 Traceback (most recent call last):
-  File "src/stage_03_train.py", line 73, in <module>
+  File "src/stage_04_evaluate.py", line 60, in <module>
     main(config_path=parsed_args.config, params_path=parsed_args.params)
-  File "src/stage_03_train.py", line 35, in main
-    matrix = joblib.load(featurized_data_dir_path)
-  File "D:\Usama\Personal\iNeuron\2022\Projects\FSDS-DVC-NLP-project-with-docs\env\lib\site-packages\joblib\numpy_pickle.py", line 650, in load
-    with open(filename, 'rb') as f:
-PermissionError: [Errno 13] Permission denied: 'artifacts\\features'
-[2022-10-05 22:59:51,980: INFO: stage_03_train]: 
+  File "src/stage_04_evaluate.py", line 48, in main
+    prediction_by_class = model.predict_proba(X)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\sklearn\ensemble\_forest.py", line 839, in predict_proba
+    X = self._validate_X_predict(X)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\sklearn\ensemble\_forest.py", line 568, in _validate_X_predict
+    X = self._validate_data(X, dtype=DTYPE, accept_sparse="csr", reset=False)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\sklearn\base.py", line 576, in _validate_data
+    self._check_n_features(X, reset=reset)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\sklearn\base.py", line 395, in _check_n_features
+    raise ValueError(
+ValueError: X has 2502 features, but RandomForestClassifier is expecting 2500 features as input.
+[2022-10-06 12:54:55,832: INFO: stage_04_evaluate]: 
 ********************
-[2022-10-05 22:59:51,980: INFO: stage_03_train]: >>>>> stage STAGE_NAME started <<<<<
-[2022-10-05 22:59:51,983: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-05 22:59:51,985: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-05 22:59:51,986: INFO: common]: created directory at: artifacts\model
-[2022-10-05 22:59:51,994: ERROR: stage_03_train]: 'coo_matrix' object is not subscriptable
+[2022-10-06 12:54:55,832: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-06 12:54:55,834: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 12:54:55,836: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 12:54:56,046: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME completed!<<<<<
+
+[2022-10-06 13:04:33,303: INFO: stage_04_evaluate]: 
+********************
+[2022-10-06 13:04:33,303: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-06 13:04:33,306: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 13:04:33,307: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 13:04:33,515: INFO: common]: json file saved at: scores.json
+[2022-10-06 13:04:33,516: ERROR: stage_04_evaluate]: must be real number, not builtin_function_or_method
 Traceback (most recent call last):
-  File "src/stage_03_train.py", line 74, in <module>
+  File "src/stage_04_evaluate.py", line 75, in <module>
     main(config_path=parsed_args.config, params_path=parsed_args.params)
-  File "src/stage_03_train.py", line 38, in main
-    labels = np.squeeze(matrix[:,1].toarray())
-TypeError: 'coo_matrix' object is not subscriptable
-[2022-10-05 23:01:03,737: INFO: stage_01_prepare_data]: 
+  File "src/stage_04_evaluate.py", line 64, in main
+    nth_point = math.ceil(len)
+TypeError: must be real number, not builtin_function_or_method
+[2022-10-06 13:04:42,909: INFO: stage_04_evaluate]: 
 ********************
-[2022-10-05 23:01:03,738: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data started <<<<<
-[2022-10-05 23:01:03,741: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-05 23:01:03,743: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-05 23:01:03,743: INFO: common]: created directory at: artifacts\prepared
-[2022-10-05 23:01:06,982: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data completed!<<<<<
+[2022-10-06 13:04:42,909: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-06 13:04:42,912: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 13:04:42,913: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 13:04:43,119: INFO: common]: json file saved at: scores.json
+[2022-10-06 13:04:43,120: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME completed!<<<<<
 
-[2022-10-05 23:01:12,042: INFO: stage_02_featurization]: 
+[2022-10-06 13:25:49,015: INFO: stage_04_evaluate]: 
 ********************
-[2022-10-05 23:01:12,042: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
-[2022-10-05 23:01:12,045: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-05 23:01:12,047: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-05 23:01:12,048: INFO: common]: created directory at: artifacts\features
-[2022-10-05 23:01:12,218: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
-[2022-10-05 23:01:25,059: INFO: data_mgmt]: The output matrix saved at artifacts\features\train.pkl of shape (17536, 2502)
-[2022-10-05 23:01:25,134: INFO: common]: The input data frame artifacts\prepared\test.tsv of size (7464, 3) is read.
-[2022-10-05 23:01:26,954: INFO: data_mgmt]: The output matrix saved at artifacts\features\test.pkl of shape (7464, 2502)
-[2022-10-05 23:01:27,199: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
+[2022-10-06 13:25:49,016: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-06 13:25:49,018: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 13:25:49,020: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 13:25:49,233: INFO: common]: json file saved at: scores.json
+[2022-10-06 13:25:49,235: INFO: common]: json file saved at: scores.json
+[2022-10-06 13:25:49,238: INFO: common]: json file saved at: roc.json
+[2022-10-06 13:25:49,239: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME completed!<<<<<
 
-[2022-10-05 23:03:04,186: INFO: stage_03_train]: 
+[2022-10-06 13:27:38,612: INFO: stage_04_evaluate]: 
 ********************
-[2022-10-05 23:03:04,186: INFO: stage_03_train]: >>>>> stage STAGE_NAME started <<<<<
-[2022-10-05 23:03:04,190: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-05 23:03:04,193: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-05 23:03:04,194: INFO: common]: created directory at: artifacts\model
-[2022-10-05 23:03:04,211: INFO: stage_03_train]: input matrix size: (17536, 2502)
-[2022-10-05 23:03:04,212: INFO: stage_03_train]: X matrix size: (17536, 2500)
-[2022-10-05 23:03:04,213: INFO: stage_03_train]: I matrix size or labels: (17536,)
-[2022-10-05 23:03:07,703: INFO: stage_03_train]: saveed our mdoel at: artifacts\model\model.h5
-[2022-10-05 23:03:07,705: INFO: stage_03_train]: >>>>> stage STAGE_NAME completed!<<<<<
+[2022-10-06 13:27:38,612: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-06 13:27:38,615: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 13:27:38,616: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 13:27:38,826: INFO: common]: json file saved at: scores.json
+[2022-10-06 13:27:38,829: INFO: common]: json file saved at: prc.json
+[2022-10-06 13:27:38,833: INFO: common]: json file saved at: roc.json
+[2022-10-06 13:27:38,834: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME completed!<<<<<
 
-[2022-10-05 23:06:20,167: INFO: stage_02_featurization]: 
+[2022-10-06 13:33:13,499: INFO: stage_03_train]: 
 ********************
-[2022-10-05 23:06:20,167: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
-[2022-10-05 23:06:20,170: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-05 23:06:20,172: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-05 23:06:20,172: INFO: common]: created directory at: artifacts\features
-[2022-10-05 23:06:20,343: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
-[2022-10-05 23:06:33,492: INFO: data_mgmt]: The output matrix saved at artifacts\features\train.pkl of shape (17536, 2502)
-[2022-10-05 23:06:33,574: INFO: common]: The input data frame artifacts\prepared\test.tsv of size (7464, 3) is read.
-[2022-10-05 23:06:35,534: INFO: data_mgmt]: The output matrix saved at artifacts\features\test.pkl of shape (7464, 2502)
-[2022-10-05 23:06:35,808: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
+[2022-10-06 13:33:13,499: INFO: stage_03_train]: >>>>> stage training started <<<<<
+[2022-10-06 13:33:13,502: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 13:33:13,503: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 13:33:13,504: INFO: common]: created directory at: artifacts\model
+[2022-10-06 13:33:13,513: INFO: stage_03_train]: input matrix size: (17536, 2502)
+[2022-10-06 13:33:13,513: INFO: stage_03_train]: X matrix size: (17536, 2500)
+[2022-10-06 13:33:13,513: INFO: stage_03_train]: I matrix size or labels: (17536,)
+[2022-10-06 13:33:15,592: INFO: stage_03_train]: saveed our mdoel at: artifacts\model\model.pkl
+[2022-10-06 13:33:15,593: INFO: stage_03_train]: >>>>> stage training completed!<<<<<
 
-[2022-10-05 23:06:38,298: INFO: stage_03_train]: 
+[2022-10-06 13:33:17,561: INFO: stage_04_evaluate]: 
 ********************
-[2022-10-05 23:06:38,298: INFO: stage_03_train]: >>>>> stage STAGE_NAME started <<<<<
-[2022-10-05 23:06:38,301: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-05 23:06:38,303: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-05 23:06:38,303: INFO: common]: created directory at: artifacts\model
-[2022-10-05 23:06:38,317: INFO: stage_03_train]: input matrix size: (17536, 2502)
-[2022-10-05 23:06:38,318: INFO: stage_03_train]: X matrix size: (17536, 2500)
-[2022-10-05 23:06:38,318: INFO: stage_03_train]: I matrix size or labels: (17536,)
-[2022-10-05 23:06:41,930: INFO: stage_03_train]: saveed our mdoel at: artifacts\model\model.h5
-[2022-10-05 23:06:41,930: INFO: stage_03_train]: >>>>> stage STAGE_NAME completed!<<<<<
-
-[2022-10-05 23:08:26,642: INFO: stage_03_train]: 
-********************
-[2022-10-05 23:08:26,642: INFO: stage_03_train]: >>>>> stage STAGE_NAME started <<<<<
-[2022-10-05 23:08:26,645: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2022-10-05 23:08:26,646: INFO: common]: yaml file: params.yaml loaded successfully
-[2022-10-05 23:08:26,647: INFO: common]: created directory at: artifacts\model
-[2022-10-05 23:08:26,659: INFO: stage_03_train]: input matrix size: (17536, 2502)
-[2022-10-05 23:08:26,660: INFO: stage_03_train]: X matrix size: (17536, 2500)
-[2022-10-05 23:08:26,660: INFO: stage_03_train]: I matrix size or labels: (17536,)
-[2022-10-05 23:08:30,404: INFO: stage_03_train]: saveed our mdoel at: artifacts\model\model.pkl
-[2022-10-05 23:08:30,405: INFO: stage_03_train]: >>>>> stage STAGE_NAME completed!<<<<<
+[2022-10-06 13:33:17,562: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-06 13:33:17,564: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-06 13:33:17,566: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-06 13:33:17,785: INFO: common]: json file saved at: scores.json
+[2022-10-06 13:33:17,788: INFO: common]: json file saved at: prc.json
+[2022-10-06 13:33:17,792: INFO: common]: json file saved at: roc.json
+[2022-10-06 13:33:17,793: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME completed!<<<<<
 

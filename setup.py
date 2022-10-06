@@ -17,7 +17,7 @@ setup(
     description="A small package for DVC",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url=f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",
+    url=f"https://github.com/mohammadusama2/FSDS-DVC-NLP-project-with-docs",
     author_email="mohammadusama2@hotmail.com",
     packages=[SRC_REPO],
     license="MIT",
