@@ -12,7 +12,7 @@ import os
 import pandas as pd
 
 
-STAGE = "STAGE_NAME" ## <<< change stage name 
+STAGE = "Evaluation" ## <<< change stage name 
 
 logging.basicConfig(
     filename=os.path.join("logs", 'running_logs.log'), 
