@@ -186,3 +186,48 @@ TypeError: must be real number, not builtin_function_or_method
 [2022-10-06 13:33:17,792: INFO: common]: json file saved at: roc.json
 [2022-10-06 13:33:17,793: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME completed!<<<<<
 
+[2022-10-22 17:07:22,159: INFO: stage_01_prepare_data]: 
+********************
+[2022-10-22 17:07:22,159: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data started <<<<<
+[2022-10-22 17:07:22,164: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-22 17:07:22,169: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-22 17:07:22,169: INFO: common]: created directory at: artifacts\prepared
+[2022-10-22 17:07:24,836: INFO: stage_01_prepare_data]: >>>>> stage Prepare_data completed!<<<<<
+
+[2022-10-22 17:07:29,390: INFO: stage_02_featurization]: 
+********************
+[2022-10-22 17:07:29,390: INFO: stage_02_featurization]: >>>>> stage Featurization started <<<<<
+[2022-10-22 17:07:29,395: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-22 17:07:29,395: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-22 17:07:29,395: INFO: common]: created directory at: artifacts\features
+[2022-10-22 17:07:29,561: INFO: common]: The input data frame artifacts\prepared\train.tsv of size (17536, 3) is read.
+[2022-10-22 17:07:40,939: INFO: data_mgmt]: The output matrix saved at artifacts\features\train.pkl of shape (17536, 2502)
+[2022-10-22 17:07:41,020: INFO: common]: The input data frame artifacts\prepared\test.tsv of size (7464, 3) is read.
+[2022-10-22 17:07:43,155: INFO: data_mgmt]: The output matrix saved at artifacts\features\test.pkl of shape (7464, 2502)
+[2022-10-22 17:07:43,500: INFO: stage_02_featurization]: >>>>> stage Featurization completed!<<<<<
+
+[2022-10-22 17:07:46,108: INFO: stage_03_train]: 
+********************
+[2022-10-22 17:07:46,108: INFO: stage_03_train]: >>>>> stage training started <<<<<
+[2022-10-22 17:07:46,113: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-22 17:07:46,113: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-22 17:07:46,113: INFO: common]: created directory at: artifacts\model
+[2022-10-22 17:07:46,123: INFO: stage_03_train]: input matrix size: (17536, 2502)
+[2022-10-22 17:07:46,123: INFO: stage_03_train]: X matrix size: (17536, 2500)
+[2022-10-22 17:07:46,123: INFO: stage_03_train]: I matrix size or labels: (17536,)
+[2022-10-22 17:07:49,328: INFO: stage_03_train]: saveed our mdoel at: artifacts\model\model.pkl
+[2022-10-22 17:07:49,328: INFO: stage_03_train]: >>>>> stage training completed!<<<<<
+
+[2022-10-22 17:07:51,534: INFO: stage_04_evaluate]: 
+********************
+[2022-10-22 17:07:51,534: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME started <<<<<
+[2022-10-22 17:07:51,539: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-10-22 17:07:51,539: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-10-22 17:07:51,789: INFO: stage_04_evaluate]: len of labels: 7464 and predictions: 7464
+[2022-10-22 17:07:51,790: INFO: common]: json file saved at: scores.json
+[2022-10-22 17:07:51,791: INFO: stage_04_evaluate]: no. of prc points : 2
+[2022-10-22 17:07:51,792: INFO: common]: json file saved at: prc.json
+[2022-10-22 17:07:51,793: INFO: stage_04_evaluate]: no. of roc points : 3
+[2022-10-22 17:07:51,793: INFO: common]: json file saved at: roc.json
+[2022-10-22 17:07:51,795: INFO: stage_04_evaluate]: >>>>> stage STAGE_NAME completed!<<<<<
+
